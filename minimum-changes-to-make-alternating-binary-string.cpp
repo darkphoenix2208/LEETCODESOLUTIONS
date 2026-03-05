@@ -1,0 +1,34 @@
+// Problem  : Minimum Changes To Make Alternating Binary String
+// Difficulty: Easy
+// Tags     : String
+// URL      : https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/
+// Solved on: 2026-05-08 21:51
+// ──────────────────────────────────────────────────
+
+class Solution {
+public:
+    int minOperations(string s) {
+        int n=s.size();
+        int c1=0,c2=0;
+
+        for(int i=0;i<n;i++){
+            if(i%2==0){
+                if(s[i]!='0') c1++;
+            }else{
+                if(s[i]!='1') c1++;
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            if(i%2==0){
+                if(s[i]!='1') c2++;
+            }else{
+                if(s[i]!='0') c2++;
+            }
+        }
+
+        return min(c1,c2);
+    }
+};
+
+// Auto-commit update
