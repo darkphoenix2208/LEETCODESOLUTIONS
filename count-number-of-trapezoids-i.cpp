@@ -1,0 +1,26 @@
+// Problem  : Count Number of Trapezoids I
+// Difficulty: Medium
+// Tags     : Array, Hash Table, Math, Geometry
+// URL      : https://leetcode.com/problems/count-number-of-trapezoids-i/
+// Solved on: 2026-04-09 00:03
+// ──────────────────────────────────────────────────
+
+class Solution {
+public:
+    int countTrapezoids(vector<vector<int>>& points) {
+        unordered_map<int, int> pointNum;
+        const int mod = 1e9 + 7;
+        long long ans = 0, sum = 0;
+        for (auto& point : points) {
+            pointNum[point[1]]++;
+        }
+        for (auto& [_, pNum] : pointNum) {
+            long long edge = (long long)pNum * (pNum - 1) / 2;
+            ans += edge * sum;
+            sum += edge;
+        }
+        return ans % mod;
+    }
+};
+
+// Auto-commit update
