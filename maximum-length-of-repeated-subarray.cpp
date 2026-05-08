@@ -1,0 +1,36 @@
+// Problem  : Maximum Length of Repeated Subarray
+// Difficulty: Medium
+// Tags     : Array, Binary Search, Dynamic Programming, Sliding Window, Rolling Hash, Hash Function
+// URL      : https://leetcode.com/problems/maximum-length-of-repeated-subarray/
+// Solved on: 2026-04-08 23:59
+// ──────────────────────────────────────────────────
+
+class Solution {
+public:
+    int findLength(vector<int>& nums1, vector<int>& nums2) {
+       int n=nums1.size();
+       int m=nums2.size();
+       vector<vector<int>>dp(n+1,vector<int>(m+1,0));
+       for(int i=0;i<=n;i++){
+        dp[i][0]=0;
+       } 
+       for(int j=0;j<=m;j++){
+        dp[0][j]=0;
+       }
+       int ans=0;
+       for(int i=1;i<=n;i++){
+        for(int j=1;j<=m;j++){
+            if(nums1[i-1]==nums2[j-1]){
+                dp[i][j]=1+dp[i-1][j-1];
+                ans=max(dp[i][j],ans);
+            }
+            else{
+                dp[i][j]=0;
+            }
+        }
+       }
+       return ans;
+    }
+};
+
+// Auto-commit update
