@@ -1,0 +1,15 @@
+# Problem  : Employees Earning More Than Their Managers
+# Difficulty: Easy
+# Tags     : Database
+# URL      : https://leetcode.com/problems/employees-earning-more-than-their-managers/
+# Solved on: 2026-04-09 00:11
+# ──────────────────────────────────────────────────
+
+SELECT b.name AS Employee
+FROM Employee a
+INNER JOIN Employee b 
+    ON b.managerId = a.id 
+   AND b.salary > a.salary;
+
+
+// Auto-commit update
