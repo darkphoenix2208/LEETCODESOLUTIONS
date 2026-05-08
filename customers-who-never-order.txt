@@ -1,0 +1,14 @@
+# Problem  : Customers Who Never Order
+# Difficulty: Easy
+# Tags     : Database
+# URL      : https://leetcode.com/problems/customers-who-never-order/
+# Solved on: 2026-04-09 00:12
+# ──────────────────────────────────────────────────
+
+SELECT c.name as Customers
+FROM Customers c
+LEFT JOIN Orders o ON c.id = o.customerId
+WHERE o.customerId IS NULL;
+
+
+// Auto-commit update
