@@ -1,0 +1,14 @@
+# Problem  : Duplicate Emails
+# Difficulty: Easy
+# Tags     : Database
+# URL      : https://leetcode.com/problems/duplicate-emails/
+# Solved on: 2026-04-09 00:12
+# ──────────────────────────────────────────────────
+
+SELECT email
+FROM Person
+GROUP BY email
+HAVING COUNT(email) > 1;
+
+
+// Auto-commit update
